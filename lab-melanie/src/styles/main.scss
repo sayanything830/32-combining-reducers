@@ -1,0 +1,53 @@
+$primary-color: rgb(102, 101, 93);
+$secondary-color: rgb(211, 169, 211);
+$tertiary-color: rgb(255, 255, 236);
+
+* {
+  background-color: $primary-color;
+  font-family: Helvetica;
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;
+  color: $secondary-color;
+}
+
+p {
+  font-style: italic;
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  height: 40px;
+  width: 40%;
+  background-color: $tertiary-color;
+  color: $primary-color;
+  font-size: 20px;
+}
+
+button {
+  width: 30%;
+  height: 30px;
+  color: $primary-color;
+  background-color: $secondary-color;
+  font-size: 20px;
+}
+
+.category-item {
+  float: left;
+  margin-top: 20px;
+  margin-left: 15px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 30%;
+  border: 2px solid $tertiary-color;
+  border-radius: 45px 5px;
+  font-size: 30px;
+  color: $secondary-color;
+}
+
