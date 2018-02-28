@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ExpenseUpdate, ExpenseDelete} from '../../../action/category-action';
+import {expenseUpdate, expenseDelete} from '../../../action/category-action';
 import {renderIf} from '../../../lib/utils';
 import ExpenseForm from '../../expense/expense-form/index';
 
@@ -60,8 +60,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
-  expenseItemExpenseUpdate: category => dispatch(expenseUpdate(category)),
-  expenseItemExpenseDelete: category => dispatch(expenseDelete(category)),
+  expenseItemExpenseUpdate: expense => dispatch(expenseUpdate(expense)),
+  expenseItemExpenseDelete: expense => dispatch(expenseDelete(expense)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseItem);

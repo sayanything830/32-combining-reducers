@@ -58,7 +58,7 @@ class CategoryItem extends React.Component {
         />
 
         {this.props.expenses[this.props.category._id] ? this.props.expenses[this.props.category._id].map(expense =>
-          <ExpenseItem key={expense._id} expense={expense} />
+          <ExpenseItem key={expense._id} buttonText="Delete Expense" expense={expense} />
         )
           :
           undefined
