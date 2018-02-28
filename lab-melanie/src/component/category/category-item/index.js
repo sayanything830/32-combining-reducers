@@ -5,6 +5,7 @@ import {expenseCreate} from '../../../action/expense-action';
 import {renderIf} from '../../../lib/utils';
 import CategoryForm from '../category-form/index';
 import ExpenseForm from '../../expense/expense-form/index';
+import ExpenseItem from '../../expense/expense-item/index';
 
 class CategoryItem extends React.Component {
   constructor(props) {
