@@ -1,4 +1,4 @@
-import uuid from 'uuid/vi';
+import uuid from 'uuid/v1';
 
 export const expenseCreate = expense => {
   expense._id = uuid();

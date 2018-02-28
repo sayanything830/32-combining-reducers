@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {categoryUpdate, categoryDelete} from '../../../action/category-action';
+import {expenseCreate} from '../../../action/expense-action';
 import {renderIf} from '../../../lib/utils';
 import CategoryForm from '../category-form/index';
+import ExpenseForm from '../../expense/expense-form/index';
 
 class CategoryItem extends React.Component {
   constructor(props) {
@@ -47,18 +49,32 @@ class CategoryItem extends React.Component {
           category={this.props.category}
           buttonText="Update"
           onComplete={this.handleUpdate}/>)}
+
+        <ExpenseForm
+          categoryId={this.props.category._id}
+          buttonText="Create Expense"
+          onComplete={this.props.expenseItemExpenseCreate}
+        />
+
+        {this.props.expenses[this.props.category._id] ? this.props.expenses[this.props.category._id].map(expense =>
+          <ExpenseItem key={expense._id} expense={expense} />
+        )
+          :
+          undefined
+        }
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  categories: state,
+  expenses: state.expenses,
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
   categoryItemCategoryUpdate: category => dispatch(categoryUpdate(category)),
   categoryItemCategoryDelete: category => dispatch(categoryDelete(category)),
+  expenseItemExpenseCreate: expense => dispatch(expenseCreate(expense)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem);

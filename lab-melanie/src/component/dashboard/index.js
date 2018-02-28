@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {categoryCreate, categoryDelete} from '../../action/category-action';
 import CategoryForm from '../category/category-form/index';
 import CategoryItem from '../category/category-item/index';
+import ExpenseItem from '../expense/expense-item/index';
 
 class Dashboard extends React.Component {
   render() {
@@ -14,10 +15,22 @@ class Dashboard extends React.Component {
           onComplete={this.props.dashboardCategoryCreate}/>
 
         {this.props.categories ?
-          this.props.categories.map(category => <CategoryItem
-            key={category._id}
-            category={category}
-            buttonText="Delete"/>)
+          this.props.categories.map(category =>
+            <div key={category._id}>
+              <CategoryItem
+                category={category}
+                buttonText="Delete"/>
+
+              {/* {this.props.expenses[this.props.categories._id] ?
+                this.props.expenses[this.props.categories._id].map(expense =>
+                  <div key={expense._id}>
+                    <ExpenseItem expense={expense}/>
+                  </div>)
+                :
+                undefined
+              } */}
+
+            </div>)
           :
           undefined
         }
@@ -28,8 +41,8 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.category,
-  expense: state.expense,
+  categories: state.categories,
+  expenses: state.expenses,
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
