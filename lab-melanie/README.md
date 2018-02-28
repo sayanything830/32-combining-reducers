@@ -1,6 +1,6 @@
-# 31 Redux
+# 32 Combining Reducers
 
-This is a budget making application. A user may create, update and delete budgets as well as view all items they have created in their dashboard.
+This is a budget making application. A user may create, update and delete budgets as well as view all items they have created in their dashboard. Once a category is created, the user may then add expenses to that category. The user may also delete and update these expenses.
 
 To create a budget, type in the name of your budget and a dollar limit, then press `Create`.
 
