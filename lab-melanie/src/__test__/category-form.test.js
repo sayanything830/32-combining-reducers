@@ -15,11 +15,11 @@ describe('<CategoryForm />', function() {
       expect(this.wrapper.length).toBe(1);
       expect(this.wrapper.find('.category-form').length).toBe(1);
     });
-    it('should have a default state object with a title and property', () => {
-      expect(this.wrapper.state().title).toEqual('');
+    it('should have a default state object with a name and property', () => {
+      expect(this.wrapper.state().name).toEqual('');
     });
     it('should change the state object with form input provided', () => {
-      this.wrapper.find('.category-form input').simulate('change', {target: {name: 'name', value: 'hello'}});
+      this.wrapper.find('.category-form input[type="text"]').simulate('change', {target: {name: 'name', value: 'hello'}});
       expect(this.wrapper.state().name).toEqual('hello');
     });
   });

@@ -2,7 +2,7 @@ let initialState = {};
 
 export default (state=initialState, action) => {
   let {type, payload} = action;
-  let changedState, categoryId, categoryExpenses, updatedExpenses;
+  let changedState, categoryId, categoryExpenses, updatedExpenses, updatedState;
 
   switch(type) {
   case 'CATEGORY_CREATE': return {...state, [payload._id]: []};
@@ -22,9 +22,9 @@ export default (state=initialState, action) => {
     return {...state, [categoryId]: updatedExpenses};;
   case 'EXPENSE_DELETE':
     categoryId = payload.categoryId;
-    categoryExpenses = state[categoryId];
-    updatedExpenses = categoryExpenses.filter(expense => expense._id !== payload._id);
-    return {...state, [categoryID]: updatedExpenses};;
+    updatedState = {...state};
+    updatedState[categoryId] = state[categoryId].filter(expense => expense._id !== payload._id);
+    return updatedState;
   case 'EXPENSE_RESET': return initialState;
   default: return state;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {expenseUpdate, expenseDelete} from '../../../action/category-action';
+import {expenseUpdate, expenseDelete} from '../../../action/expense-action';
 import {renderIf} from '../../../lib/utils';
 import ExpenseForm from '../../expense/expense-form/index';
 
@@ -33,11 +33,11 @@ class ExpenseItem extends React.Component {
     this.setState({
       editing: !this.state.editing,
     });
-    this.props.expenseItemExpenseUpdate(category);
+    this.props.expenseItemExpenseUpdate(expense);
   }
 
   handleDelete() {
-    this.props.expenseItemExpenseDelete(this.state);
+    this.props.expenseItemExpenseDelete(this.props.expense);
   }
 
   render() {
