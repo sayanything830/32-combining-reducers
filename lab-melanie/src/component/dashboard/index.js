@@ -21,15 +21,6 @@ class Dashboard extends React.Component {
                 category={category}
                 buttonText="Delete"/>
 
-              {/* {this.props.expenses[this.props.categories._id] ?
-                this.props.expenses[this.props.categories._id].map(expense =>
-                  <div key={expense._id}>
-                    <ExpenseItem expense={expense}/>
-                  </div>)
-                :
-                undefined
-              } */}
-
             </div>)
           :
           undefined
